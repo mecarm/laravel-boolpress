@@ -11,8 +11,8 @@
     <div id="root">
 
     </div>
-    
+
     {{-- Script vue.js --}}
-    <script src="{{ assets('js/app.js')}}"></script>
+    <script src="{{ asset('js/app.js')}}"></script>
 </body>
 </html>
