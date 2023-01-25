@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
+@section('font-awesome')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endsection
+
 @section('content')
     <h1 class="text-center">I miei Post</h1>
+    <h2 class="text-center">
+        <a href="{{ route('admin.posts.create')}}">Crea nuovo post</a>
+        
+    </h2>
 
     <table class="table w-75 m-auto">
         <thead>
@@ -24,7 +32,14 @@
             
             </td>
             <td>{{ $post->body}}</td>
-            <td></td>
+            <td>
+                {{-- <a href="{{ route('admin.posts.destroy')}}">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+                <a href="{{ route('admin.posts.edit', $post->id)}}">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </a> --}}
+            </td>
         </tr>
     @endforeach
         </tbody>
