@@ -2,7 +2,7 @@
   
     <div>
         <h1>Work in progress</h1>
-        <h2>ciao</h2>
+        <h2>Ciao v2</h2>
     </div>
 
 </template>
