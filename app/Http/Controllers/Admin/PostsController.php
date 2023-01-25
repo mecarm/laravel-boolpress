@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
 
 class PostsController extends Controller
 {
@@ -47,7 +48,7 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
-        
+
         $newPost = new Post();
         $newPost->fill($data);
         $newPost->save();
@@ -76,7 +77,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
@@ -88,7 +91,12 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $singolo_post = Post::findOrFail($id);
+
+        $singolo_post->update($data);
+
+        return redirect()->route('admin.posts.show', $singolo_post->id);
     }
 
     /**
@@ -99,6 +107,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $singolo_post = Post::findOrFail($id);
+        $singolo_post->delete();
+
+        return redirect()->route('admin.posts.index');
     }
 }

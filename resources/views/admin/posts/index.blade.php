@@ -32,13 +32,18 @@
             
             </td>
             <td>{{ $post->body}}</td>
-            <td>
-                {{-- <a href="{{ route('admin.posts.destroy')}}">
-                    <i class="fa-solid fa-trash"></i>
-                </a>
-                <a href="{{ route('admin.posts.edit', $post->id)}}">
+            <td class="d-flex gap-1">
+                <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
+                
+                <a class="btn btn-primary" href="{{ route('admin.posts.edit', $post->id)}}">
                     <i class="fa-solid fa-pen-to-square"></i>
-                </a> --}}
+                </a> 
             </td>
         </tr>
     @endforeach

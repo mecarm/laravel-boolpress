@@ -5,8 +5,6 @@
         <h1>Crea un nuovo post</h1>
     </div>
 
-    
-
     <form class="w-75 m-auto" action="{{route('admin.posts.store')}}" method="POST">
         @csrf
 
