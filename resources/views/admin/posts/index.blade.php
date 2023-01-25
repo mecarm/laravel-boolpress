@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>I miei Post</h1>
+    <h1 class="text-center">I miei Post</h1>
 
     <table class="table w-75 m-auto">
         <thead>
