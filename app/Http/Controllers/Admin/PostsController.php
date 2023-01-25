@@ -51,7 +51,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $singolo_post = Post::findOrFail($id);
+
+        return view('admin.posts.show', compact('singolo_post'));
     }
 
     /**

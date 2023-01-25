@@ -16,10 +16,15 @@
         
     @foreach ($posts as $post)
         <tr>
-          <td>{{ $post->id}}</td>
-          <td>{{ $post->title}}</td>
-          <td>{{ $post->body}}</td>
-          <td></td>
+            <td>{{ $post->id}}</td>
+            <td>
+                <a href="{{route('admin.posts.show', $post->id)}}">
+                    {{ $post->title}}
+                </a>
+            
+            </td>
+            <td>{{ $post->body}}</td>
+            <td></td>
         </tr>
     @endforeach
         </tbody>
