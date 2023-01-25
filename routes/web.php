@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\PostsController;
+
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 
 //Qui gestiamo tutte le rotte sotto autenticazione! 
 
