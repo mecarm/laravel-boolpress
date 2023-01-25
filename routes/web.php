@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +28,9 @@ Route::middleware('auth')
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-        Route::get('/', 'HomeController@index')
-            ->name('home');
+        Route::get('/', 'HomeController@index')->name('index');
+        //Aggiungo controllo CRUD nella sezione Admin
+        Route::resource('/posts', PostsController::class);
     });
 
 // Qui gestiamo tutte le rotte che non usano un autenticazione
