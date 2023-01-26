@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1 class="text-center">I miei Post</h1>
+    <h1 class="text-center">Pagina Post</h1>
     <h2 class="text-center">
         <a href="{{ route('admin.posts.create')}}">Crea nuovo post</a>
         
