@@ -17,8 +17,9 @@ class PostsController extends Controller
      */
     public function index()
     {
+        //con la funzione with() recupero anche le informazioni contenuti nella tabella category richiamando la funzione del model
         $data = [
-            'posts' => Post::paginate(25)
+            'posts' => Post::with('category')->paginate(25) 
         ];
 
         return view('admin.posts.index', $data);

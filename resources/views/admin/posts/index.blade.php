@@ -33,7 +33,11 @@
             
             </td>
             <td>{{ $post->body}}</td>
-            <td>{{ $post->category_id}}</td>
+            <td>
+                @if ( $post->category )
+                    {{ $post->category['name']}}
+                @endif
+            </td>
             <td class="d-flex gap-1">
                 <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}">
                     @csrf
