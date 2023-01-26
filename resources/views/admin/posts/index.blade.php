@@ -17,6 +17,7 @@
             <th scope="col">#ID</th>
             <th scope="col">TITLE</th>
             <th scope="col">BODY</th>
+            <th scope="col">CATEGORY</th>
             <th scope="col">ACTIONS</th>
           </tr>
         </thead>
@@ -32,6 +33,7 @@
             
             </td>
             <td>{{ $post->body}}</td>
+            <td>{{ $post->category_id}}</td>
             <td class="d-flex gap-1">
                 <form method="POST" action="{{route('admin.posts.destroy', $post->id)}}">
                     @csrf
