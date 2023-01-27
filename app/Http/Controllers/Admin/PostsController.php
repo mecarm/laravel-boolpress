@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Post;
 use App\Http\Controllers\Controller;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 
@@ -33,7 +34,8 @@ class PostsController extends Controller
     public function create()
     {
         $data = [
-            'categories' => Category::All()
+            'categories' => Category::All(),
+            'tags' => Tag::All()
         ];
 
         return view('admin.posts.create', $data);
@@ -48,6 +50,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        dd($data);
 
         //validazione
         $request->validate([

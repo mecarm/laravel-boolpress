@@ -28,6 +28,7 @@
              @enderror
         </div>
 
+        {{-- Category --}}
         <div class="my-3">
             <label for="">Categories</label>
             <select class="form-control" name="category_id" id="">
@@ -38,6 +39,17 @@
                     </option>
                 @endforeach
             </select>
+        </div>
+
+        {{-- TAG --}}
+        <div class="my-3">
+            <label for="">Tags:</label>
+            @foreach ($tags as $tag)
+            <label class="form-control"  for="">
+                <input type="checkbox" name="tags[]" value="{{ $tag->id }}">
+                {{ $tag->name}}
+            </label>
+            @endforeach
         </div>
 
         <button type="submit" class="btn btn-primary">Crea</button>
