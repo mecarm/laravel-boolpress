@@ -95,7 +95,9 @@ class PostsController extends Controller
 
         $categories = Category::All();
 
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $tags = Tag::all();
+
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -112,6 +114,14 @@ class PostsController extends Controller
 
         $singolo_post->update($data);
 
+        //Controlla se l'utente ha cliccato o erano già selezionate delle checkbox
+        if( array_key_exists( 'tags', $data ) ){
+            $singolo_post->tags()->sync($data['tags']);
+        }else{
+            //Non ci sono checkbox selezionate
+            $singolo_post->tags()->sync([]);
+        }
+
         return redirect()->route('admin.posts.show', $singolo_post->id);
     }
 
@@ -124,6 +134,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $singolo_post = Post::findOrFail($id);
+        $singolo_post->tags()->sync([]);
         $singolo_post->delete();
 
         return redirect()->route('admin.posts.index');

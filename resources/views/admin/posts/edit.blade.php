@@ -29,6 +29,7 @@
              @enderror
         </div>
 
+        {{-- Category --}}
         <div class="my-3">
             <label for="">Categories</label>
             <select class="form-control" name="category_id">
@@ -39,6 +40,18 @@
                     </option>
                 @endforeach
             </select>
+        </div>
+
+        {{-- TAG --}}
+        <div class="my-3">
+            <label for="">Tags:</label>
+            @foreach ($tags as $tag)
+            <label class="form-control"  for="">
+                {{-- Inserisco un ternario nel caso una checkbox è gia stata checkkata in precedenza di poterla vedere nella edit --}}
+                <input class="form-check-input" type="checkbox" name="tags[]" value="{{ $tag->id }}" {{ $post->tags->contains($tag) ? 'checked' : '' }}>
+                {{ $tag->name}}
+            </label>
+            @endforeach
         </div>
 
         <button type="submit" class="btn btn-primary">Modifica</button>
