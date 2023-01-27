@@ -18,4 +18,11 @@ class Post extends Model
         //Il post ha una categoria associata
         return $this->belongsTo('App\Category');
     }
+
+    public function tags(){
+        //Funzione di relazione ad più tag
+
+        //Il post ha più tag associati
+        return $this->belongsToMany('App\Tag');
+    }
 }
