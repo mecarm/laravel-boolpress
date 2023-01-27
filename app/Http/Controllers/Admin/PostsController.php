@@ -50,7 +50,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        // dd($data);
 
         //validazione
         $request->validate([
@@ -61,6 +61,11 @@ class PostsController extends Controller
         $newPost = new Post();
         $newPost->fill($data);
         $newPost->save();
+
+        //Controllo se esiste all'interno di data un array di nome tags (controllo se l'utente ha cliccato delle checkbox)
+        if( array_key_exists( 'tags', $data ) ){
+            $newPost->tags()->sync( $data['tags'] );
+        }
 
         return redirect()->route('admin.posts.index');
     }
