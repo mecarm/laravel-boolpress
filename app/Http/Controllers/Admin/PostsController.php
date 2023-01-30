@@ -33,6 +33,7 @@ class PostsController extends Controller
      */
     public function create()
     {
+        
         $data = [
             'categories' => Category::All(),
             'tags' => Tag::All()
