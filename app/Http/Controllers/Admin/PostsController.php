@@ -81,7 +81,7 @@ class PostsController extends Controller
         }
 
         //INVIO MAIL DI CREAZIONE POST
-        $mail = new CreatePostMail();
+        $mail = new CreatePostMail($newPost);
         $email_utente = Auth::user();
         Mail::to($email_utente)->send($mail);
 

@@ -16,9 +16,12 @@ class CreatePostMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    private $post;
+
+    public function __construct($post)
     {
-        //
+        $this->post = $post;
     }
 
     /**
@@ -28,6 +31,6 @@ class CreatePostMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.posts.createPost');
+        return $this->view('mails.posts.createPost', ['post' => $this->post]);
     }
 }
