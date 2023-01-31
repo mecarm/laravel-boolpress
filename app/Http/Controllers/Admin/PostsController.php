@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Mail\CreatePostMail;
 use App\Post;
 use App\Http\Controllers\Controller;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+
+
 
 class PostsController extends Controller
 {
@@ -74,6 +79,11 @@ class PostsController extends Controller
         if( array_key_exists( 'tags', $data ) ){
             $newPost->tags()->sync( $data['tags'] );
         }
+
+        //INVIO MAIL DI CREAZIONE POST
+        $mail = new CreatePostMail();
+        $email_utente = Auth::user();
+        Mail::to($email_utente)->send($mail);
 
         return redirect()->route('admin.posts.index');
     }
@@ -151,3 +161,5 @@ class PostsController extends Controller
         return redirect()->route('admin.posts.index');
     }
 }
+
+
