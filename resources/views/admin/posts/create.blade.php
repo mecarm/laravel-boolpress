@@ -5,7 +5,7 @@
         <h1>Crea un nuovo post</h1>
     </div>
 
-    <form class="w-75 m-auto" action="{{route('admin.posts.store')}}" method="POST">
+    <form class="w-75 m-auto" action="{{route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div>
@@ -41,6 +41,12 @@
             </select>
         </div>
 
+        {{-- Aggiunta file immagini --}}
+        <div class="my-3">
+            <label for="">Aggiunta cover immagini</label>
+            <input type="file" name="image" class="form-control-file">
+        </div>
+
         {{-- TAG --}}
         <div class="my-3">
             <label for="">Tags:</label>
@@ -51,6 +57,8 @@
             </label>
             @endforeach
         </div>
+
+        
 
         <button type="submit" class="btn btn-primary">Crea</button>
     </form>

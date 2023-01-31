@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -58,6 +59,12 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required'
         ]);
+
+        //Condizione if per controllare se l'immagine è stata caricata nell'input
+        if(array_key_exists('image', $data)){
+            $cover_url = Storage::put('post_covers', $data['image']);
+            $data['cover'] = $cover_url;
+        }
 
         $newPost = new Post();
         $newPost->fill($data);
