@@ -59,7 +59,7 @@ class PostsController extends Controller
         $data = $request->all();
         // dd($data);
 
-        //validazione
+        //validazionee
         $request->validate([
             'title' => 'required',
             'body' => 'required'
