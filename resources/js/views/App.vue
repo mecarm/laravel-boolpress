@@ -1,10 +1,9 @@
 <template>
   
     <div>
-        <h1>Work in progress</h1>
-        <h2>Ciao v2</h2>
+        <h2>Ciao vue.js</h2>
 
-        <!-- <WorkInProgress/> -->
+        <WorkInProgress/>
 
     <!-- Scrivere i dati dei posts -->
         <div>
@@ -22,12 +21,12 @@
 
 <script>
 
-// import WorkInProgress from "/components/WorkInProgress.vue"
+import WorkInProgress from "../components/WorkInProgress.vue"
 
 export default {
     name: "App",
     components: {
-        // WorkInProgress
+        WorkInProgress
     },
     data(){
         return{
