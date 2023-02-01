@@ -1908,9 +1908,30 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+// import WorkInProgress from "/components/WorkInProgress.vue"
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
-  components: {}
+  components: {
+    // WorkInProgress
+  },
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
+  mounted: function mounted() {
+    this.getPosts();
+  },
+  methods: {
+    getPosts: function getPosts() {
+      var _this = this;
+      axios.get('http://127.0.0.1:8000/api/posts').then(function (res) {
+        console.log(res.data);
+        _this.posts = res.data;
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -1929,13 +1950,13 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", [_c("h1", [_vm._v("Work in progress")]), _vm._v(" "), _c("h2", [_vm._v("Ciao v2")]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.posts, function (elem) {
+    return _c("li", {
+      key: elem.id
+    }, [_vm._v("\n                " + _vm._s(elem.title) + "\n            ")]);
+  }), 0)])]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("Work in progress")]), _vm._v(" "), _c("h2", [_vm._v("Ciao v2")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
