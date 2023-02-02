@@ -38,7 +38,12 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        //Recupero il post con l'id specifico al click ritornandomi anche category e tags
+        $post = Post::With('category', 'tags')->find($id);
+
+        if(!$post) return response('Post Non Trovato', 404);
+
+        return response()->json($post);
     }
 
     /**

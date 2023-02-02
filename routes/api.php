@@ -25,6 +25,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::
     namespace ('Api')->prefix('/posts')->group(function () {
+
+        //Localhost:800/api/posts
         Route::get('/', 'PostController@index');
+
+        //Localhost:800/api/posts/12 {12 è l'id dinamico}
+        Route::get('/{id}', 'PostController@show');
     });
+
 
