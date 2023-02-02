@@ -1,6 +1,8 @@
 <template>
-    <div>
-        {{ post.title }}
+    <div class="text-center">
+        <H1>Singolo post</H1>
+        <h4>{{ post.title }}</h4>
+        <p>{{ post.body }}</p>
     </div>
 </template>
 
@@ -20,7 +22,7 @@ export default {
     },
     methods: {
         getPost(){
-            axios.get('http://127.0.0.1:8000/api/post/' + this.$forceUpdate.params.id)
+            axios.get('http://127.0.0.1:8000/api/posts/' + this.$route.params.id)
                 .then( res => {
                     console.log(res.data);
                     this.post = res.data;

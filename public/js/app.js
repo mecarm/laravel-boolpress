@@ -1965,7 +1965,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getPost: function getPost() {
       var _this = this;
-      axios.get('http://127.0.0.1:8000/api/post/' + this.$forceUpdate.params.id).then(function (res) {
+      axios.get('http://127.0.0.1:8000/api/posts/' + this.$route.params.id).then(function (res) {
         console.log(res.data);
         _this.post = res.data;
       })["catch"](function (err) {
@@ -2197,7 +2197,9 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_vm._v("\n    " + _vm._s(_vm.post.title) + "\n")]);
+  return _c("div", {
+    staticClass: "text-center"
+  }, [_c("H1", [_vm._v("Singolo post")]), _vm._v(" "), _c("h4", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.body))])], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -2246,10 +2248,7 @@ var render = function render() {
       key: elem.id
     }, [_c("router-link", {
       attrs: {
-        to: {
-          path: "/post/id",
-          params: elem.id
-        }
+        to: "/post/".concat(elem.id)
       }
     }, [_vm._v("\n                    " + _vm._s(elem.title) + "\n                ")])], 1);
   }), 0)])], 1);

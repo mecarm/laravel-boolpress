@@ -7,7 +7,7 @@
          <div>
             <ul>
                 <li v-for="elem in posts" :key="elem.id">
-                    <router-link :to="{ path: '/post/id', params: elem.id}">
+                    <router-link :to="`/post/${elem.id}`">
                         {{ elem.title }}
                     </router-link>
                 </li>
