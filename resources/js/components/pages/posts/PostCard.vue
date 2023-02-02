@@ -1,8 +1,8 @@
 <template>
     <div class="text-center">
         <H1>Singolo post</H1>
-        <h4>{{ post.title }}</h4>
-        <p>{{ post.body }}</p>
+        <h4>{{ post?.title }}</h4>
+        <p>{{ post?.body }}</p>
     </div>
 </template>
 

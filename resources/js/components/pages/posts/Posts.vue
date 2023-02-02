@@ -33,6 +33,7 @@ export default {
         }
     },
     mounted() {
+        console.log('ciao');
         this.getPosts();
     },
     methods: {

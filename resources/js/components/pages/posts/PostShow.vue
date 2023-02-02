@@ -13,9 +13,6 @@ export default {
     components: {
         PostCard
     },
-    data() { 
-
-    }
 }
 </script>
 

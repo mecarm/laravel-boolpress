@@ -1992,8 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
   name: 'PostShow',
   components: {
     PostCard: _PostCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  data: function data() {}
+  }
 });
 
 /***/ }),
@@ -2020,6 +2019,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    console.log('ciao');
     this.getPosts();
   },
   methods: {
@@ -2195,11 +2195,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 var render = function render() {
+  var _vm$post, _vm$post2;
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "text-center"
-  }, [_c("H1", [_vm._v("Singolo post")]), _vm._v(" "), _c("h4", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.body))])], 1);
+  }, [_c("H1", [_vm._v("Singolo post")]), _vm._v(" "), _c("h4", [_vm._v(_vm._s((_vm$post = _vm.post) === null || _vm$post === void 0 ? void 0 : _vm$post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s((_vm$post2 = _vm.post) === null || _vm$post2 === void 0 ? void 0 : _vm$post2.body))])], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
