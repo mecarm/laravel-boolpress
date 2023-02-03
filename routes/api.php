@@ -31,6 +31,15 @@ Route::
 
         //Localhost:800/api/posts/12 {12 è l'id dinamico}
         Route::get('/{id}', 'PostController@show');
+
     });
 
 
+
+Route::
+    namespace ('Api')->prefix('/tags')->group(function () {
+
+        //Attivo la funzione indevo del controller tag
+        Route::get('/', 'TagsController@index');
+
+    });
