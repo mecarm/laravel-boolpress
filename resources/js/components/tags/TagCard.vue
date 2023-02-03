@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- Stampo la lista dei post del tag -->
+        <!-- Stampo la lista dei post del tag  -->
             <div class="text-start" v-for="elem in tag" :key="elem">
                 <ul>
                     <li v-for="element in elem.posts" :key="element">
