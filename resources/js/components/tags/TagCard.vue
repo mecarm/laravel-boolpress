@@ -14,6 +14,9 @@
 <script>
 export default {
     name: 'TagCard',
+    components: {
+
+    },
     data() {
         return {
             tag: [],

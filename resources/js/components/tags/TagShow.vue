@@ -12,7 +12,7 @@ import TagCard from './TagCard.vue';
 export default {
     name: 'TagShow',
     components: {
-        TagCard
+        TagCard,
     }
 }
 </script>
