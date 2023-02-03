@@ -9,6 +9,7 @@ import Posts from './components/pages/posts/Posts.vue'
 import PostShow from './components/pages/posts/PostShow.vue'
 
 import TagsIndex from './components/tags/TagsIndex.vue'
+import TagShow from './components/tags/TagShow.vue'
 
 const router = new VueRouter({
     //Scriverò tutti i miei path per le diverse pagine
@@ -36,6 +37,11 @@ const router = new VueRouter({
             path: '/tags',
             name: 'tags',
             component: TagsIndex
+        },
+        {
+            path: '/tags/:name',
+            name: 'singleTag',
+            component: TagShow
         }
     ]
 });

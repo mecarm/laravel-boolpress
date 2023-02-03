@@ -42,4 +42,8 @@ Route::
         //Attivo la funzione indevo del controller tag
         Route::get('/', 'TagsController@index');
 
+        //Attivo funzione show per recuperare il name singolo
+        Route::get('/{name}', 'TagsController@show');
+
+
     });

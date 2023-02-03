@@ -15,7 +15,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags = Tag::All();
+        $tags = Tag::with('posts')->get();
 
         return response()->json($tags);
     }
@@ -37,9 +37,14 @@ class TagsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name)
     {
-        //
+        //Recupero il tag con nome specifico al click ritornandomi 
+        $tag = Tag::where('name', 'like', $name)->with('posts')->get();
+
+        if(!$tag) return response('Post Non Trovato', 404);
+
+        return response()->json($tag);
     }
 
     /**
